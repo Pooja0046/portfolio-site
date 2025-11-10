@@ -130,7 +130,7 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
   if (!dialogTextEl || !charSprite || !dialogBoxEl) return;
 
   const fullText = "Welcome to my portfolio! Select a file to begin exploring.";
-  const charSmileSrc = "./assets/img/character.png";
+  const charSmileSrc = "./assets/img/Character.png";
   const charTalkSrc  = "./assets/img/charactertalking.png";
   const typingSpeed = 85; // ms per character
 
