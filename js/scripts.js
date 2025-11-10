@@ -132,7 +132,6 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
   const fullText = "Welcome to my portfolio! Select a file to begin exploring.";
   const charSmileSrc = "./assets/img/character.png";
   const charTalkSrc  = "./assets/img/charactertalking.png";
-
   const typingSpeed = 90; // ms per character
 
   let typingInterval = null;
