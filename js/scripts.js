@@ -151,7 +151,7 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
 
     // mouth animation
     mouthInterval = setInterval(() => {
-      charSprite.src = (charSprite.src && charSprite.src.includes("character-talking"))
+      charSprite.src = (charSprite.src && charSprite.src.includes("charactertalking"))
         ? charSmileSrc
         : charTalkSrc;
     }, 160);
