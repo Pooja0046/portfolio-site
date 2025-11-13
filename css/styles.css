@@ -48,6 +48,7 @@ img, canvas {
 #screen-4 { background-image: url("../assets/img/biographyy.png"); }
 #screen-5 { background-image: url("../assets/img/background-art.png"); }
 #screen-6 { background-image: url("../assets/img/digitalartbackground.png"); }
+#screen-7 { background-image: url("../assets/img/casestudiesmenubg.png"); }
 
 
 
@@ -735,3 +736,104 @@ img, canvas {
 .arrow-btn:hover {
   transform: scale(1.1);
 }
+
+
+
+
+
+/* ------------------------------
+   CASE STUDIES (Islands Menu)
+--------------------------------*/
+.case-islands {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "island1 island2"
+    ". island3";
+  gap: 5rem 6rem; /* space between rows/columns */
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Individual islands */
+.island {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease, filter 0.4s ease;
+  position: relative;
+}
+
+/* Hover glow effect */
+.island:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 15px rgba(234, 206, 28, 0.813))
+          drop-shadow(0 0 30px rgba(255, 200, 100, 0.4));
+}
+
+
+.island:hover::after {
+  box-shadow: 0 0 15px 5px rgba(255, 239, 156, 0.6);
+  opacity: 1;
+}
+
+/* Images */
+.island img {
+  width: 280px;
+  max-width: 90%;
+  height: auto;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Labels */
+.island-label {
+  margin-top: 1rem;
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 1.3rem;
+  color: #fff3c4;
+  text-shadow: 2px 2px 0px #5c191b;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Slightly staggered float motion */
+.island1 { animation-duration: 4s; animation-delay: 0s; grid-area: island1; }
+.island2 { animation-duration: 4.5s; animation-delay: 0.5s; grid-area: island2; }
+.island3 { animation-duration: 5s; animation-delay: 1s; grid-area: island3; }
+
+/* Center the third island perfectly under the first two */
+.island3 {
+  justify-self: center;
+  grid-column: 1 / span 2;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .case-islands {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "island1"
+      "island2"
+      "island3";
+    gap: 3rem;
+  }
+
+  .island3 {
+    grid-column: auto;
+  }
+}
+
