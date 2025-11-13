@@ -48,7 +48,8 @@ img, canvas {
 #screen-4 { background-image: url("../assets/img/biographyy.png"); }
 #screen-5 { background-image: url("../assets/img/background-art.png"); }
 #screen-6 { background-image: url("../assets/img/digitalartbackground.png"); }
-#screen-7 { background-image: url("../assets/img/casestudiesmenubg.png"); }
+#screen-7 { background-image: url("../assets/img/titlepage-bg.png"); }
+#screen-8 { background-image: url("../assets/img/sustainabilitybg.png"); }
 
 
 
@@ -835,5 +836,212 @@ img, canvas {
   .island3 {
     grid-column: auto;
   }
+}
+
+
+
+
+
+/* ------------------------------
+   CASE STUDY PAGE
+--------------------------------*/
+
+/* --- HERO SECTION --- */
+.case-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 30px;
+}
+
+.case-hero .hero-image {
+  width: 700px;
+  max-width: 100%;
+  border: 4px solid #2a2a2a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px #6bd3ff, 0 0 10px #6bd3ff80;
+  background: #fff;
+}
+
+.hero-text {
+  max-width: 450px;
+  background: #d9f8f2;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #ffb347, 0 0 12px #ffb34780;
+  padding: 25px;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 1.4rem;
+  background: #ffb347;
+  padding: 6px 10px;
+  display: inline-block;
+  border: 3px solid #2a2a2a;
+  box-shadow: 3px 3px #2a2a2a;
+  margin-bottom: 10px;
+}
+
+.hero-text ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* --- CASE SECTIONS --- */
+.case-section,
+.case-process,
+.case-final,
+.case-video,
+.case-outcome {
+  margin: 100px auto;
+  background: #f7f7f7;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #f3aeff, 0 0 10px #f3aeff80;
+  padding: 40px 30px;
+  position: relative;
+}
+
+.case-section::before,
+.case-process::before,
+.case-final::before,
+.case-video::before,
+.case-outcome::before {
+  content: "🔍";
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  background: #a4d7ff;
+  border: 3px solid #2a2a2a;
+  padding: 4px 8px;
+  font-size: 2rem;
+}
+
+/* --- CASE SECTION: The Challenge --- */
+.case-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.case-section .case-text {
+  flex: 1 1 400px;
+}
+
+.case-section .case-image img {
+  width: 400px;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
+  image-rendering: pixelated;
+}
+
+/* --- PROCESS STEPS --- */
+.process-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.step-card {
+  flex: 1 1 250px;
+  background: #dfffdc;
+  border: 3px solid #2a2a2a;
+  box-shadow: 3px 3px #2a2a2a;
+  padding: 20px;
+  text-align: center;
+}
+
+.step-card h3 {
+  background: #ffcc6b;
+  border: 3px solid #2a2a2a;
+  padding: 5px 10px;
+  display: inline-block;
+  box-shadow: 2px 2px #2a2a2a;
+}
+
+.step-card img {
+  width: 90%;
+  margin-top: 10px;
+  border: 3px solid #2a2a2a;
+  image-rendering: pixelated;
+}
+
+/* --- FINAL GALLERY --- */
+.final-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.final-gallery img {
+  width: 300px;
+  border: 4px solid #2a2a2a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px #ffcc6b, 0 0 10px #ffcc6b80;
+}
+
+.case-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.case-video video {
+  max-width: 90%;
+  width: 800px;
+  height: auto;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #6affb3, 0 0 15px #6affb380;
+  margin: 20px auto;
+  display: block;
+}
+
+
+/* --- OUTCOME --- */
+.case-outcome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+
+.outcome-text {
+  flex: 1 1 400px;
+}
+
+.outcome-image img {
+  width: 400px;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #ff8080, 0 0 12px #ff808080;
+}
+
+/* --- ANIMATIONS --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
