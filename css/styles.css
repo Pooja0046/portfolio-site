@@ -46,11 +46,16 @@ img, canvas {
 #screen-2 { background-image: url("../assets/img/menu-bgg.png"); }
 #screen-3 { background-image: url("../assets/img/characerlog-bgg.png"); }
 #screen-4 { background-image: url("../assets/img/biographyy.png"); }
+#screen-5 { background-image: url("../assets/img/background-art.png"); }
+#screen-6 { background-image: url("../assets/img/digitalartbackground.png"); }
 
 
 
 
 
+/* ======================
+   SECTION 1 – TITLE
+======================*/
 .title-wrapper {
   width: 100%;
   height: 100%;
@@ -403,6 +408,10 @@ img, canvas {
   image-rendering: pixelated;
 }
 
+.back-top-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px #a47b19;
+}
 
 
 
@@ -492,3 +501,237 @@ img, canvas {
 
 
 
+/* ------------------------------
+   ART PAGE (Sketches Section)
+--------------------------------*/
+/* Desk container */
+.desk-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Arrow buttons using custom image */
+.arrow-btn {
+  width: 60px;
+  height: 60px;
+  background-image: url("../assets/img/backtotopbutton.png"); /* your button image */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.arrow-btn.left {
+  position: absolute;
+  left: 5%;
+  rotate: -90deg;
+}
+
+.arrow-btn.right {
+  position: absolute;
+  right: 5%;
+  rotate: 90deg;
+}
+
+.arrow-btn:hover {
+  transform: scale(1.1) rotate(0deg);
+}
+
+
+
+/* Main sketch container */
+.sketches-wrapper {
+  position: relative;
+  width: 80%;
+  height: 80vh; /* defines visible area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Each sketch set (like a slide) */
+.sketch-set {
+  position: absolute;
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.sketch-set.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 5;
+}
+
+.sketch-set.exit-left {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* Individual sketch images */
+.sketch-img {
+  width: 25%;
+  min-width: 180px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Give the left/right sketches a natural angle */
+.sketch-img.img-left {
+  transform: rotate(-6deg);
+}
+
+.sketch-img.img-center {
+  transform: rotate(0deg);
+  z-index: 2;
+}
+
+.sketch-img.img-right {
+  transform: rotate(5deg);
+}
+
+/* Keep hover scaling smooth even with rotation */
+.sketch-img:hover {
+  transform: scale(1.05) rotate(0deg);
+}
+
+
+.sketch-img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .sketch-img {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sketches-wrapper {
+    width: 90%;
+    height: 60vh;
+  }
+
+  .sketch-img {
+    width: 45%;
+  }
+
+  .arrow-btn {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sketch-img {
+    width: 80%;
+  }
+  .arrow-btn {
+    font-size: 2rem;
+  }
+}
+
+
+
+.computer-box {
+  width: 60%;
+  max-width: 700px;
+  height: 350px;
+  aspect-ratio: 4 / 3;
+  background-color: #8ed0e6;
+  border: 4px solid #004b69;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.window-icons {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.window-icons img {
+  width: 45px;
+  height: 45px;
+}
+
+.digital-carousel {
+  position: relative;
+  width: 90%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.digital-art {
+  position: absolute;
+  max-width: 70%;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.digital-art.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 5;
+}
+
+.arrow-btn {
+  width: 60px;
+  height: 60px;
+  background-image: url("../assets/img/backtotopbutton.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s;
+}
+
+.arrow-btn.left {
+  position: absolute;
+  left: 3%;
+  rotate: -90deg;
+}
+
+.arrow-btn.right {
+  position: absolute;
+  right: 3%;
+  rotate: 90deg;
+}
+
+.arrow-btn:hover {
+  transform: scale(1.1);
+}

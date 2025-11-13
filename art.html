@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PK Portfolio - Art Projects</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SCREEN 5 - ART PROJECTS -->
+  <section class="screen2" id="screen-5" data-navcolor="#5c191b" style="position: relative;">
+
+    <!-- NAV -->
+    <header class="global-nav section-nav" aria-label="Main navigation">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="./index.html#screen-1">ABOUT ME</a></li>
+          <li><a href="./art.html" class="active">ART PROJECTS</a></li>
+          <li><a href="./case-studies.html">CASE STUDIES</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+     <div class="charlog-title">
+      <img src="./assets/img/titlecard-sketches.png" class="charlog-title-img">
+    </div>
+
+    <!-- MAIN ART CONTENT -->
+    <div class="desk-background">
+      <button class="arrow-btn left" id="prev-btn" aria-label="Previous sketches"></button>
+
+      <div class="sketches-wrapper">
+        <!-- Set 1 -->
+        <div class="sketch-set active" id="set-1">
+          <img src="./assets/img/sonic.png" alt="Sketch 1" class="sketch-img img-left">
+          <img src="./assets/img/shadow.png" alt="Sketch 2" class="sketch-img img-center">
+          <img src="./assets/img/venom.png" alt="Sketch 3" class="sketch-img img-right">
+        </div>
+
+        <!-- Set 2 -->
+        <div class="sketch-set" id="set-2">
+          <img src="./assets/img/sonic.png" alt="Sketch 4" class="sketch-img img-left">
+          <img src="./assets/img/shadow.png" alt="Sketch 5" class="sketch-img img-center">
+          <img src="./assets/img/venom.png" alt="Sketch 6" class="sketch-img img-right">
+        </div>
+      </div>
+
+      <button class="arrow-btn right" id="next-btn" aria-label="Next sketches"></button>
+    </div>
+
+  </section>
+
+  <!--SECTION 2- DIGITAL ART-->
+
+  <section class="screen2" id="screen-6" data-navcolor="#519a8f">
+
+    <!-- NAV -->
+    <header class="global-nav section-nav" aria-label="Main navigation">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="./index.html#screen-1">ABOUT ME</a></li>
+          <li><a href="./art.html">ART PROJECTS</a></li>
+          <li><a href="./digital-art.html" class="active">DIGITAL ART</a></li>
+          <li><a href="./case-studies.html">CASE STUDIES</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Title -->
+    <div class="charlog-title">
+      <img src="./assets/img/titlecarddigitalart.png" class="charlog-title-img" alt="Digital Art Title">
+    </div>
+
+    <!-- COMPUTER WINDOW BOX -->
+    <div class="computer-box">
+      <div class="window-icons">
+        <img src="./assets/img/mininmiseiconblue.png" alt="Minimize">
+        <img src="./assets/img/windowiconblue.png" alt="Window">
+        <img src="./assets/img/xiconblue.png" alt="Close">
+      </div>
+
+      <button class="arrow-btn left" id="digital-prev"></button>
+
+      <div class="digital-carousel">
+        <img src="./assets/img/mario.png" class="digital-art active" alt="Digital artwork 1">
+        <img src="./assets/img/mario.png" class="digital-art" alt="Digital artwork 2">
+        <img src="./assets/img/sonic.png" class="digital-art" alt="Digital artwork 3">
+        <img src="./assets/img/mario.png" class="digital-art" alt="Digital artwork 4">
+      </div>
+
+      <button class="arrow-btn right" id="digital-next"></button>
+    </div>
+
+    <button id="back-top-btn" class="back-top-btn">
+      <img src="./assets/img/backtotopbutton.png">
+    </button>
+
+  </section>
+
+
+
+  <script src="./js/art.js"></script>
+</body>
+</html>
+
+
