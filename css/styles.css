@@ -50,6 +50,11 @@ img, canvas {
 #screen-6 { background-image: url("../assets/img/digitalartbackground.png"); }
 #screen-7 { background-image: url("../assets/img/titlepage-bg.png"); }
 #screen-8 { background-image: url("../assets/img/sustainabilitybg.png"); }
+#screen-9 { background-image: url("../assets/img/sonicbg.png"); }
+#screen-10 { background-image: url("../assets/img/portfoliobg.png"); }
+#screen-11 { background-image: url("../assets/img/contactbg.png"); }
+#screen-12 { background-image: url("../assets/img/cvbg.png"); }
+
 
 
 
@@ -506,6 +511,7 @@ img, canvas {
 /* ------------------------------
    ART PAGE (Sketches Section)
 --------------------------------*/
+
 /* Desk container */
 .desk-background {
   position: relative;
@@ -1044,4 +1050,266 @@ img, canvas {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------
+   CONTACT STUDY PAGE
+--------------------------------*/
+
+.contact-container {
+  margin-top: 140px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.postit {
+  font-family: "Pixelify Sans", sans-serif;
+  background: #ffe7b3;
+  border: 4px solid #2a2a2a;
+  box-shadow: 8px 8px 0 #b06d3a;
+  padding: 25px 35px;
+  text-align: center;
+  transform: rotate(-1deg);
+}
+
+.postit-large {
+  width: 400px;
+}
+
+.postit-small {
+  width: 280px;
+}
+
+.insta-postit img {
+  width: 60px;
+  height: 60px;
+  margin-top: 10px;
+  image-rendering: pixelated;
+}
+
+.email-text {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #2a2a2a;
+  margin-top: 10px;
+}
+
+.email-text:hover {
+  text-decoration: underline;
+}
+
+.copy-status {
+  font-size: 0.9rem;
+  margin-top: 6px;
+  height: 20px;
+}
+
+
+/* ------------------------------
+   CONTACT PAGE - FINAL VERSION
+--------------------------------*/
+
+
+/* Wrapper used for scaling relative to the background */
+.contact-board {
+    position: relative;
+    width: 80vw;          /* scales with screen */
+    height: 70vw;
+    max-width: 850px;     /* caps size on desktop */
+    aspect-ratio: 16/10;  /* matches the board area in your artwork */
+    margin: 0 auto;
+}
+
+/* All post-its — scale + pixel crisp */
+.postit {
+    position: absolute;
+    width: 25%;           /* controls post-it size */
+    font-family: "Pixelify Sans", sans-serif;
+    color: #3b1d12;
+    text-shadow: 0px 1px 0px #ffffff;
+    text-align: center;
+    image-rendering: pixelated;
+}
+
+/* ----------------------------------
+   🎯 POSITIONING — adjust here only
+   These percentages lock post-its
+   to the board in the background.
+----------------------------------- */
+
+.postit-title {
+    top: 8%;
+    left: 24%;
+}
+
+.postit-email {
+    top: 27%;
+    left: 9%;
+    font-size: 1.2rem;
+}
+
+.postit-social {
+    width: 20%;
+    top: 27%;
+    left: 44%;
+}
+
+/* Instagram icon */
+.insta-link img {
+    width: 55%;
+    image-rendering: pixelated;
+    transition: transform 0.2s;
+}
+
+.insta-link img:hover {
+    transform: scale(1.1);
+}
+
+/* Email link styling */
+.email-link {
+    color: #4a2d1c;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.email-link:hover {
+    color: #8b3f2f;
+}
+
+/* -------------------------
+   RESPONSIVE TWEAKING
+--------------------------*/
+
+@media (max-width: 700px) {
+    .postit {
+        width: 23%;   /* larger on mobile for readability */
+        font-size: 0.8rem;
+    }
+
+    .postit-title { top: 1%; left: 25%; }
+    .postit-email { top: 29%; left: 7%; }
+    .postit-social { top: 23%; left: 45%; width: 13%; }
+}
+
+
+
+
+
+
+
+/* ============================
+   CV SCROLL SECTION
+============================ */
+.cv-section {
+    display: flex; 
+    flex-direction: column; /* stack scroll + button vertically */
+    align-items: center;    /* center horizontally */
+    justify-content: flex-start; /* content starts at top */
+    min-height: 100vh;
+    position: relative;
+    overflow: visible !important;
+}
+
+/* Wrapper that holds both images */
+.scroll-wrapper {
+    position: relative;
+    width: 45vw;          /* responsive size */
+    max-width: 650px;
+    min-width: 260px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 0.5s ease-out;
+}
+
+/* CLOSED SCROLL */
+.scroll-closed {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 21;
+    transition: opacity 0.4s ease;
+}
+
+/* OPEN SCROLL (starts hidden) */
+.scroll-open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.9);
+    display: block;
+    z-index: 20;
+    transition:
+        opacity 0.45s ease-in-out,
+        transform 0.45s ease-in-out;
+}
+
+/* When expanded — wrapper grows to fit the open scroll */
+.scroll-wrapper.open {
+    height: auto;
+}
+
+/* Open scroll fully visible */
+.scroll-wrapper.open .scroll-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hide closed scroll when open */
+.scroll-wrapper.open .scroll-closed {
+    opacity: 0;
+}
+
+
+
+
+.cv-back-btn {
+    position: relative; /* now relative inside the wrapper */
+    margin-top: 15rem;   /* gap between scroll and button */
+    bottom: auto;        /* remove absolute */
+    left: auto;
+    transform: none;
+    z-index: 21;        /* above scroll */
+     background: transparent; /* make sure button background is transparent */
+        border: none;             /* remove default border */
+    padding: 0;               /* remove default padding */
+}
+
+.cv-back-btn img {
+    width: 90px;
+    height: auto;
+}
+
+
+.cv-back-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px #a47b19;
+}
+
+
+
+
 
