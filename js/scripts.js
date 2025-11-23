@@ -42,6 +42,42 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
   updateNavs();
 })();
 
+
+//HAMBURGER
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerButtons = document.querySelectorAll(".hamburger");
+  const mobileMenu = document.getElementById("global-mobile-menu");
+  const closeBtn = mobileMenu.querySelector(".close-menu");
+
+  // OPEN MENU FROM ANY SCREEN
+  hamburgerButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const section = button.closest("section");
+      const navColor = section.dataset.navcolor;
+
+      mobileMenu.style.backgroundColor = navColor;
+      mobileMenu.style.display = "flex";
+    });
+  });
+
+  // CLOSE USING X
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.style.display = "none";
+  });
+
+  // CLOSE WHEN CLICKING A LINK
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.style.display = "none";
+    });
+  });
+});
+
+
+
+
+
+
 // ---------- CHARACTER DIALOG ----------
 
 (function() {
@@ -49,7 +85,7 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
   const dialogTextEl = document.getElementById("dialog-text");
   const dialogBoxEl = document.getElementById("dialog-box");
   const charSprite = document.getElementById("char-sprite");
-  const skipBtn = document.getElementById("dialog-skip");
+
 
   if (!dialogTextEl || !charSprite || !dialogBoxEl) return;
 
@@ -110,24 +146,7 @@ document.querySelectorAll('.back-top-btn').forEach(btn => {
     dialogBoxEl.style.transform = "translateY(-10px)";
   }
 
-  // skip button
-  skipBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    if (typingActive) {
-      if (typingInterval) { clearInterval(typingInterval); typingInterval = null; }
-      if (mouthInterval) { clearInterval(mouthInterval); mouthInterval = null; }
 
-      dialogTextEl.textContent = fullText;
-      charSprite.src = charSmileSrc;
-      typingActive = false;
-
-      // hide bubble shortly after skip
-      setTimeout(() => {
-        dialogBoxEl.style.opacity = "0";
-        dialogBoxEl.style.transform = "translateY(-10px)";
-      }, 500);
-    }
-  });
 
   // ensure section is in view and trigger typing
   const observer = new IntersectionObserver((entries, obs) => {
