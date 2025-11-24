@@ -29,6 +29,36 @@
 })();
 
 
+//HAMBURGER
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerButtons = document.querySelectorAll(".hamburger");
+  const mobileMenu = document.getElementById("global-mobile-menu");
+  const closeBtn = mobileMenu.querySelector(".close-menu");
+
+  // OPEN MENU FROM ANY SCREEN
+  hamburgerButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const section = button.closest("section");
+      const navColor = section.dataset.navcolor;
+
+      mobileMenu.style.backgroundColor = navColor;
+      mobileMenu.style.display = "flex";
+    });
+  });
+
+  // CLOSE USING X
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.style.display = "none";
+  });
+
+  // CLOSE WHEN CLICKING A LINK
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.style.display = "none";
+    });
+  });
+});
+
 //SKETCHES
 document.addEventListener("DOMContentLoaded", () => {
   const sets = document.querySelectorAll(".sketch-set");
