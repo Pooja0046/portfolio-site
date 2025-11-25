@@ -525,8 +525,8 @@ img, canvas {
 
 
 
-/* ===== SCREEN 3 – CHARACTER LOG ===== */
-/* BOOK (Section 4) - reliable wrapper-based approach */
+/* ===== SCREEN 4 – BIOGRAPHY SECTION ===== */
+
 .book-wrapper {
   width: 1100px;          /* tune this to the visual size you want */
   height: 680px;         /* tune this to match your open/closed PNG canvas */
