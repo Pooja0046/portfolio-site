@@ -820,122 +820,251 @@ img, canvas {
   transform: scale(1.05);
 }
 
-/* Responsive tweaks */
-@media (max-width: 1024px) {
-  .sketch-img {
-    width: 30%;
-  }
-}
 
+/* MOBILE — show only ONE sketch at a time */
 @media (max-width: 768px) {
-  .sketches-wrapper {
-    width: 90%;
-    height: 60vh;
+
+  /* stack the images instead of side-by-side */
+  .sketch-set {
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
-  .sketch-img {
-    width: 45%;
+  /* hide left + right images */
+  .sketch-img.img-left,
+  .sketch-img.img-right {
+    display: none;
   }
 
-  .arrow-btn {
-    font-size: 2.5rem;
+  /* center sketch becomes full-width */
+  .sketch-img.img-center {
+    width: 90% !important;
+    min-width: auto;
+    transform: rotate(0deg); /* remove angle */
   }
 }
 
-@media (max-width: 480px) {
-  .sketch-img {
-    width: 80%;
-  }
-  .arrow-btn {
-    font-size: 2rem;
-  }
+/* mobile slides (hidden by default) */
+.mobile-slides {
+  display: none;           /* shown only in mobileMode by JS */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 6; /* above background but below arrow btns if needed */
 }
 
+.mobile-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
 
-
-.computer-box {
-  width: 60%;
-  max-width: 700px;
-  height: 350px;
-  aspect-ratio: 4 / 3;
-  background-color: #8ed0e6;
-  border: 4px solid #004b69;
+.mobile-slide img {
+  width: 90%;
+  height: auto;
+  max-width: 600px;
   border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* the 'active' mobile slide */
+.mobile-slide.active {
+  display: flex;
+}
+
+/* small tweak: ensure original sets hidden on mobile (JS also does this) */
+@media (max-width: 768px) {
+  .sketch-set { display: none; }    /* JS will override/display flex as needed for desktop */
+  .mobile-slides { display: flex; }
+}
+
+
+
+
+/* DIGITAL ART */
+/* ---------- PIXEL MONITOR (coded) ---------- */
+.computer-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 28px 0;
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.pixel-monitor {
+  width: min(900px, 78%);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
+  filter: drop-shadow(0 10px 8px rgba(0,0,0,0.25));
+}
+
+/* Bezel outer frame */
+.bezel {
+  width: 100%;
+  height: 84%;
+  background: linear-gradient(#7fc6d7, #6fb7c9);
+  border: 8px solid #0b3b45;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset -8px -8px 0 rgba(0,0,0,0.08);
+}
+
+/* inner bezel */
+.inner-bezel {
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  background: linear-gradient(#f8efdc);
+  border: 8px solid #083a47;
+  border-radius: 6px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* screen area */
+.screen-area {
+  flex: 1;
+  margin: 12px;
+  background: #bfeaf0;
+  border: 6px solid #1f6a6f;
+  border-radius: 6px;
+  position: relative;   /* important so children (icons / arrows) position relative to this */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-sizing: border-box;
 }
 
-.window-icons {
+/* window icons inside the screen (top-right) */
+.window-bar {
   position: absolute;
   top: 10px;
-  right: 15px;
+  right: 12px;
   display: flex;
   gap: 8px;
-  z-index: 10;
+  z-index: 40;
+  align-items: center;
 }
 
-.window-icons img {
-  width: 45px;
-  height: 45px;
+.window-icon {
+  width: 38px;
+  height: 38px;
+  image-rendering: pixelated;
+  display: block;
 }
 
+/* digital-carousel container */
 .digital-carousel {
-  position: relative;
-  width: 90%;
-  height: 80%;
+  width: 64%;
+  height: 86%;
+  max-width: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
+/* artwork images */
 .digital-art {
   position: absolute;
-  max-width: 70%;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: scale(0.96);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  border: 8px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  z-index: 1;
 }
 
 .digital-art.active {
   opacity: 1;
   transform: scale(1);
-  z-index: 5;
+  z-index: 3;
 }
 
-.arrow-btn {
-  width: 60px;
+
+/* monitor stand - tucked under the bezel so neck and base join nicely */
+.monitor-stand {
+  width: 44%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-top: -6px;        /* tuck it up under the bezel */
+  box-sizing: border-box;
+}
+
+/* neck */
+.stand-neck {
+  width: 24%;
   height: 60px;
-  background-image: url("../assets/img/backtotopbutton.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  transition: transform 0.2s;
+  background: linear-gradient(#4fa9b6, #3b8b96);
+  border: 6px solid #083a47;
+  border-top: 6px solid #4fa9b6;
+  border-bottom: 6px solid #3b8b96;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: -6px;       /* overlap a bit for a seamless join */
 }
 
-.arrow-btn.left {
-  position: absolute;
-  left: 3%;
-  rotate: -90deg;
+/* base */
+.stand-base {
+  width: 70%;
+  height: 26px;
+  background: linear-gradient(#4fa9b6, #3b8b96);
+  border: 6px solid #083a47;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-top: -8px;       /* overlap so base sits close to neck */
 }
 
-.arrow-btn.right {
-  position: absolute;
-  right: 3%;
-  rotate: 90deg;
+/* --------------------- Responsive tweaks --------------------- */
+@media (max-width: 1100px) {
+  .pixel-monitor { width: min(720px, 86%); }
+  .digital-carousel { width: 72%; }
+  .arrow-btn { width: 56px; height: 56px; }
+  .window-icon { width: 34px; height: 34px; }
 }
 
-.arrow-btn:hover {
-  transform: scale(1.1);
+@media (max-width: 820px) {
+  .pixel-monitor { width: min(640px, 94%); aspect-ratio: 4 / 3.2; }
+  .digital-carousel { width: 78%; height: 76%; }
+  .arrow-btn.left { left: 8px; }
+  .arrow-btn.right { right: 8px; }
 }
+
+@media (max-width: 520px) {
+  .pixel-monitor { width: 94%; aspect-ratio: 4 / 3.2; }
+  .digital-carousel { width: 86%; height: 70%; }
+  .arrow-btn { width: 48px; height: 48px; }
+  .window-icon { width: 28px; height: 28px; }
+}
+
+/* crispness */
+.pixel-monitor img, .digital-art {
+  image-rendering: pixelated;
+}
+
+
 
 
 
@@ -1056,7 +1185,7 @@ img, canvas {
 }
 
 .case-hero .hero-image {
-  width: 700px;
+  width: 600px;
   max-width: 100%;
   border: 4px solid #2a2a2a;
   image-rendering: pixelated;
@@ -1133,7 +1262,7 @@ img, canvas {
 }
 
 .case-section .case-image img {
-  width: 400px;
+  width: 700px;
   border: 4px solid #2a2a2a;
   box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
   image-rendering: pixelated;

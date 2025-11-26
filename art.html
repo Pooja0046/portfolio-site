@@ -114,25 +114,48 @@
       <img src="./assets/img/titlecarddigitalart.png" class="charlog-title-img" alt="Digital Art Title">
     </div>
 
-    <!-- COMPUTER WINDOW BOX -->
-    <div class="computer-box">
-      <div class="window-icons">
-        <img src="./assets/img/mininmiseiconblue.png" alt="Minimize">
-        <img src="./assets/img/windowiconblue.png" alt="Window">
-        <img src="./assets/img/xiconblue.png" alt="Close">
+<!-- COMPUTER (coded pixel monitor + stand) -->
+<div class="computer-wrap">
+  <div class="monitor pixel-monitor" role="group" aria-label="Digital art viewer">
+    <div class="bezel">
+      <div class="inner-bezel">
+
+        <!-- beige screen area (holds carousel) -->
+        <div class="screen-area" aria-live="polite">
+
+          <!-- top-right icons inside the screen-area (back into carousel container) -->
+          <div class="window-bar">
+            <img src="./assets/img/mininmiseiconblue.png" alt="Minimize" class="window-icon">
+            <img src="./assets/img/windowiconblue.png" alt="Window" class="window-icon">
+            <img src="./assets/img/xiconblue.png" alt="Close" class="window-icon">
+          </div>
+
+          <!-- left arrow -->
+          <button class="arrow-btn left" id="digital-prev" aria-label="Previous artwork"></button>
+
+          <!-- carousel -->
+          <div class="digital-carousel" id="digital-carousel" aria-roledescription="carousel">
+            <img src="./assets/img/mario.png" class="digital-art active" alt="Artwork 1">
+            <img src="./assets/img/mario.png" class="digital-art" alt="Artwork 2">
+            <img src="./assets/img/sonic.png" class="digital-art" alt="Artwork 3">
+            <img src="./assets/img/mario.png" class="digital-art" alt="Artwork 4">
+          </div>
+
+          <!-- right arrow -->
+          <button class="arrow-btn right" id="digital-next" aria-label="Next artwork"></button>
+        </div>
+
       </div>
-
-      <button class="arrow-btn left" id="digital-prev"></button>
-
-      <div class="digital-carousel">
-        <img src="./assets/img/mario.png" class="digital-art active" alt="Digital artwork 1">
-        <img src="./assets/img/mario.png" class="digital-art" alt="Digital artwork 2">
-        <img src="./assets/img/sonic.png" class="digital-art" alt="Digital artwork 3">
-        <img src="./assets/img/mario.png" class="digital-art" alt="Digital artwork 4">
-      </div>
-
-      <button class="arrow-btn right" id="digital-next"></button>
     </div>
+
+    <!-- pixel stand -->
+    <div class="monitor-stand">
+      <div class="stand-neck"></div>
+      <div class="stand-base"></div>
+    </div>
+  </div>
+</div>
+
 
     <button id="back-top-btn" class="back-top-btn">
       <img src="./assets/img/backtotopbutton.png">
