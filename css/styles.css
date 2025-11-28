@@ -1547,98 +1547,94 @@ img, canvas {
    CV SCROLL SECTION
 ============================ */
 .cv-section {
-    display: flex; 
-    flex-direction: column; /* stack scroll + button vertically */
-    align-items: center;    /* center horizontally */
-    justify-content: flex-start; /* content starts at top */
-    min-height: 100vh;
-    position: relative;
-    overflow: visible !important;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+min-height: 100vh;
+position: relative;
 }
 
-/* Wrapper that holds both images */
+
 .scroll-wrapper {
-    position: relative;
-    width: 45vw;          /* responsive size */
-    max-width: 650px;
-    min-width: 260px;
-    cursor: pointer;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: max-height 0.5s ease-out;
+width: 45vw;
+max-width: 650px;
+min-width: 260px;
+cursor: pointer;
+z-index: 10;
 }
-
-/* CLOSED SCROLL */
 .scroll-closed {
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: block;
-    z-index: 21;
-    transition: opacity 0.4s ease;
+width: 100%;
+height: auto;
+display: block;
 }
 
-/* OPEN SCROLL (starts hidden) */
-.scroll-open {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0;
-    transform: scale(0.9);
-    display: block;
-    z-index: 20;
-    transition:
-        opacity 0.45s ease-in-out,
-        transform 0.45s ease-in-out;
+/* Pixel Art Styled Popup */
+.cv-popup {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) scale(0.8);
+width: 90vw;
+max-width: 700px;
+height: 85vh;
+background: #ffd36d;
+border: 6px solid #a35f23;
+image-rendering: pixelated;
+box-shadow: 0 0 0 8px #793c11, 0 0 0 12px #793c11;
+padding: 2rem;
+z-index: 999;
+display: none;
+flex-direction: column;
+overflow-y: auto;
+font-family: "Press Start 2P", monospace;
 }
-
-/* When expanded — wrapper grows to fit the open scroll */
-.scroll-wrapper.open {
-    height: auto;
+.cv-popup.open {
+display: flex;
+animation: popup-open 0.25s ease-out forwards;
 }
-
-/* Open scroll fully visible */
-.scroll-wrapper.open .scroll-open {
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* Hide closed scroll when open */
-.scroll-wrapper.open .scroll-closed {
-    opacity: 0;
+@keyframes popup-open {
+from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
 
+.cv-close-btn {
+position: absolute;
+top: 10px;
+right: 10px;
+background: #b6594b;
+border: 3px solid #000;
+color: #fff;
+font-size: 1.2rem;
+cursor: pointer;
+padding: 0.2rem 0.6rem;
+font-family: inherit;
+image-rendering: pixelated;
+}
+
+
+.cv-content {
+margin-top: 2rem;
+font-size: 0.9rem;
+line-height: 1.6;
+}
 
 
 .cv-back-btn {
-    position: relative; /* now relative inside the wrapper */
-    margin-top: 15rem;   /* gap between scroll and button */
-    bottom: auto;        /* remove absolute */
-    left: auto;
-    transform: none;
-    z-index: 21;        /* above scroll */
-     background: transparent; /* make sure button background is transparent */
-        border: none;             /* remove default border */
-    padding: 0;               /* remove default padding */
+margin-top: 12rem;
+background: transparent;
+border: none;
+padding: 0;
 }
-
 .cv-back-btn img {
-    width: 90px;
-    height: auto;
+width: 90px;
 }
 
-
-.cv-back-btn:active {
+.cv-back-btn :active {
   transform: translateY(4px);
   box-shadow: 0px 0px 0px #a47b19;
 }
-
-
 
 
 

@@ -78,12 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //CV stuff
-document.addEventListener("DOMContentLoaded", () => {
-    const wrapper = document.querySelector(".scroll-wrapper");
+const scrollWrapper = document.querySelector('.scroll-wrapper');
+const cvPopup = document.getElementById('cv-popup');
+const cvCloseBtn = document.getElementById('cv-close-btn');
 
-    wrapper.addEventListener("click", () => {
-        wrapper.classList.toggle("open");
-    });
+
+scrollWrapper.addEventListener('click', () => {
+cvPopup.classList.add('open');
+});
+
+
+cvCloseBtn.addEventListener('click', () => {
+cvPopup.classList.remove('open');
 });
 
 //BACK TO TOP BUTTON
