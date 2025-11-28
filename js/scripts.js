@@ -166,6 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (section) observer.observe(section);
 })();
 
+
+
+
+
 //BIO BOOK
 // BOOK open/close (wrapper-based)
 (function() {

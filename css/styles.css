@@ -64,12 +64,12 @@ img, canvas {
 #screen-2 { background-image: url("../assets/img/menu-bgg.png"); }
 #screen-3 { background-image: url("../assets/img/characerlog-bgg.png"); }
 #screen-4 { background-image: url("../assets/img/biographyy.png"); }
-#screen-5 { background-image: url("../assets/img/background-art.png"); }
-#screen-6 { background-image: url("../assets/img/digitalartbackground.png"); }
+#screen-5 { background-image: url("../assets/img/artbg.png"); }
+#screen-6 { background-image: url("../assets/img/dabg.png"); }
 #screen-7 { background-image: url("../assets/img/titlepage-bg.png"); }
-#screen-8 { background-image: url("../assets/img/sustainabilitybg.png"); }
+#screen-8 { background-image: url("../assets/img/sustainabilitybg3.png"); }
 #screen-9 { background-image: url("../assets/img/sonicbg.png"); }
-#screen-10 { background-image: url("../assets/img/portfoliobg.png"); }
+#screen-10 { background-image: url("../assets/img/portfoliobg2.png"); }
 #screen-11 { background-image: url("../assets/img/contactbg.png"); }
 #screen-12 { background-image: url("../assets/img/cvbg.png"); }
 
@@ -618,7 +618,7 @@ img, canvas {
 /* ===== SCREEN 4 – BIOGRAPHY SECTION ===== */
 
 .book-wrapper {
-  width: 1100px;          /* tune this to the visual size you want */
+  width: 1000px;          /* tune this to the visual size you want */
   height: 680px;         /* tune this to match your open/closed PNG canvas */
   margin: 40px auto;     /* center and give breathing room from header */
   position: relative;
@@ -1106,8 +1106,8 @@ img, canvas {
 /* Hover glow effect */
 .island:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 15px rgba(234, 206, 28, 0.813))
-          drop-shadow(0 0 30px rgba(255, 200, 100, 0.4));
+  filter: drop-shadow(0 0 15px rgba(255, 157, 0, 0.854))
+          drop-shadow(0 0 30px rgba(192, 128, 10, 0.4));
 }
 
 
@@ -1118,7 +1118,7 @@ img, canvas {
 
 /* Images */
 .island img {
-  width: 280px;
+  width: 320px;
   max-width: 90%;
   height: auto;
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3));
@@ -1175,6 +1175,13 @@ img, canvas {
 --------------------------------*/
 
 /* --- HERO SECTION --- */
+.case-study-bg {
+  background-size: auto !important;
+  background-repeat: repeat-y !important;
+  background-position: top center !important;
+  image-rendering: pixelated;
+}
+
 .case-hero {
   display: flex;
   flex-wrap: wrap;
