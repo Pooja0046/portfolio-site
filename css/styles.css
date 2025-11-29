@@ -1176,10 +1176,12 @@ img, canvas {
 
 /* --- HERO SECTION --- */
 .case-study-bg {
-  background-size: auto !important;
+  background-size: 100% auto !important;
   background-repeat: repeat-y !important;
   background-position: top center !important;
   image-rendering: pixelated;
+
+  
 }
 
 .case-hero {
@@ -1269,11 +1271,26 @@ img, canvas {
 }
 
 .case-section .case-image img {
-  width: 700px;
+  width: 100%;
+  max-width: 700px;   /* stays large on desktop */
+  height: auto;
   border: 4px solid #2a2a2a;
   box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
   image-rendering: pixelated;
 }
+
+@media (max-width: 900px) {
+  .case-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: left; /* keeps paragraph alignment normal */
+  }
+
+  .case-section .case-text {
+    width: 90%;
+  }
+}
+
 
 /* --- PROCESS STEPS --- */
 .process-steps {
@@ -1532,10 +1549,11 @@ img, canvas {
         font-size: 0.8rem;
     }
 
-    .postit-title { top: 1%; left: 25%; }
-    .postit-email { top: 29%; left: 7%; }
-    .postit-social { top: 23%; left: 45%; width: 13%; }
+    .postit-title { top: 1%;; left: 1%; }
+    .postit-email { top: 26%; left: 2%; width: 40%; }
+    .postit-social { top: 2%; left: 45%; width: 13%; height: 25%; }
 }
+
 
 
 
