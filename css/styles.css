@@ -1230,10 +1230,8 @@ img, canvas {
 
 /* --- CASE SECTIONS --- */
 .case-section,
-.case-process,
-.case-final,
-.case-video,
-.case-outcome {
+.case-final, 
+.case-video {
   margin: 100px auto;
   background: #f7f7f7;
   border: 4px solid #2a2a2a;
@@ -1259,6 +1257,7 @@ img, canvas {
 
 /* --- CASE SECTION: The Challenge --- */
 .case-section {
+  margin-right: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1293,6 +1292,16 @@ img, canvas {
 
 
 /* --- PROCESS STEPS --- */
+.case-process{
+  margin: 100px auto;
+  margin-right: 20px;
+  background: #f7f7f7;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #f3aeff, 0 0 10px #f3aeff80;
+  padding: 40px 30px;
+  position: relative;
+}
+
 .process-steps {
   display: flex;
   flex-wrap: wrap;
@@ -1326,18 +1335,27 @@ img, canvas {
 
 /* --- FINAL GALLERY --- */
 .final-gallery {
+  width: 100%;
+  max-width: 1000px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  margin: 0 auto;   /* centers it */
+  padding: 0 15px;  /* breathing room on mobile */
 }
 
 .final-gallery img {
-  width: 300px;
+  margin-right: 20px;
+  width: 100%;
+  max-width: 600px;
   border: 4px solid #2a2a2a;
   image-rendering: pixelated;
   box-shadow: 0 0 0 4px #ffcc6b, 0 0 10px #ffcc6b80;
 }
+
+
+
 
 .case-video {
   display: flex;
@@ -1359,11 +1377,18 @@ img, canvas {
 
 /* --- OUTCOME --- */
 .case-outcome {
+  margin-right: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
   align-items: center;
+    margin: 100px auto;
+  background: #f7f7f7;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #f3aeff, 0 0 10px #f3aeff80;
+  padding: 40px 30px;
+  position: relative;
 }
 
 .outcome-text {
