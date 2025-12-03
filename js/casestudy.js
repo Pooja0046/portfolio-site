@@ -82,3 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+
+document.querySelectorAll('.back-top-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+});
