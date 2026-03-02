@@ -1681,7 +1681,6 @@ z-index: 999;
 display: none;
 flex-direction: column;
 overflow-y: auto;
-font-family: "Press Start 2P", monospace;
 }
 .cv-popup.open {
 display: flex;
