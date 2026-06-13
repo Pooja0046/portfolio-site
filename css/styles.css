@@ -72,6 +72,8 @@ img, canvas {
 #screen-10 { background-image: url("../assets/img/portfoliobg2.png"); }
 #screen-11 { background-image: url("../assets/img/contactbg.png"); }
 #screen-12 { background-image: url("../assets/img/cvbg.png"); }
+#screen-13 { background-image: url("../assets/img/overwrittenbg.png"); }
+#screen-14 { background-image: url("../assets/img/cvbg.png"); }
 
 
 
@@ -1114,15 +1116,19 @@ img, canvas {
 .case-islands {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 40px auto 0;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
   grid-template-areas:
     "island1 island2"
-    ". island3";
-  gap: 5rem 6rem; /* space between rows/columns */
-  justify-content: center;
+    "island3 island4"
+    "island5 island5";
+
+  gap: 5rem 6rem;
+
   justify-items: center;
   align-items: center;
 }
@@ -1178,13 +1184,39 @@ img, canvas {
 }
 
 /* Slightly staggered float motion */
-.island1 { animation-duration: 3s; animation-delay: 0s; grid-area: island1; }
-.island2 { animation-duration: 3.5s; animation-delay: 0.5s; grid-area: island2; }
-.island3 { animation-duration: 4s; animation-delay: 1s; grid-area: island3; }
+.island1 {
+  animation-duration: 3s;
+  animation-delay: 0s;
+  grid-area: island1;
+}
+
+.island2 {
+  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+  grid-area: island2;
+}
+
+.island3 {
+  animation-duration: 4s;
+  animation-delay: 1s;
+  grid-area: island3;
+}
+
+.island4 {
+  animation-duration: 3.8s;
+  animation-delay: 0.3s;
+  grid-area: island4;
+}
+
+.island5 {
+  animation-duration: 4.2s;
+  animation-delay: 0.8s;
+  grid-area: island5;
+}
 
 
 /* Center the third island perfectly under the first two */
-.island3 {
+.island5 {
   justify-self: center;
   grid-column: 1 / span 2;
 }
@@ -1193,16 +1225,18 @@ img, canvas {
 @media (max-width: 900px) {
   .case-islands {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "island1"
-      "island2"
-      "island3";
+grid-template-areas:
+  "island1"
+  "island2"
+  "island3"
+  "island4"
+  "island5";
     gap: 3rem;
   }
 
-  .island3 {
-    grid-column: auto;
-  }
+.island5 {
+  grid-column: auto;
+}
 }
 
 
@@ -1314,7 +1348,7 @@ img, canvas {
   height: auto;
   border: 4px solid #2a2a2a;
   box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
-  image-rendering: pixelated;
+
 }
 
 @media (max-width: 900px) {
@@ -1463,9 +1497,87 @@ img, canvas {
 
 
 
+/* ----------------------------------
+   CHECKPOINT APP IMAGES
+----------------------------------- */
 
+/* =================================================
+   MOBILE APP CASE STUDY OVERRIDES (ONLY THIS PAGE)
+   ================================================= */
 
+/* HERO MOBILE APP IMAGE FIX */
+.mobile-app-image {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
 
+/* Override ONLY hero image for mobile app case study */
+.mobile-app-image .hero-image {
+  width: 280px;            /* narrower */
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 19.5;  /* helps portrait feel */
+  object-fit: cover;
+
+  border: 4px solid #2a2a2a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
+}
+
+/* HERO TEXT stays same but improves spacing on mobile layout */
+.mobile-app-image .hero-text {
+  max-width: 420px;
+}
+
+/* =================================================
+   MOBILE GALLERY FIX (MAIN IMPORTANT PART)
+   ================================================= */
+
+.mobile-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+/* OVERRIDE ONLY FOR MOBILE APP IMAGES */
+.mobile-gallery img {
+  width: 260px;          /* narrower */
+  height: auto;
+  aspect-ratio: 9 / 19.5; /* makes screenshots feel like phone screens */
+  object-fit: cover;
+
+  border: 4px solid #2a2a2a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 0 4px #6bd3ff, 0 0 12px #6bd3ff70;
+
+  transition: transform 0.2s ease;
+}
+
+/* optional nice hover effect (keeps your vibe) */
+.mobile-gallery img:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+
+.case-video2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.case-video2 video {
+  width: 300px;
+  height: auto;
+  border: 4px solid #2a2a2a;
+  box-shadow: 0 0 0 4px #6affb3, 0 0 15px #6affb380;
+  margin: 20px auto;
+  display: block;
+}
 
 
 
@@ -1483,7 +1595,7 @@ img, canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 }
 
 .postit {
@@ -1583,12 +1695,27 @@ img, canvas {
 
 /* Instagram icon */
 .insta-link img {
-    width: 55%;
-    image-rendering: pixelated;
+    width: 70px;
     transition: transform 0.2s;
 }
 
 .insta-link img:hover {
+    transform: scale(1.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-link img {
+    width: 70px;
+    transition: transform 0.2s;
+}
+
+.social-link img:hover {
     transform: scale(1.1);
 }
 
